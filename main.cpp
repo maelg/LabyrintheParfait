@@ -155,7 +155,7 @@ int main()
 
     // Personnage
     sf::Texture texture;
-    if (!texture.loadFromFile("sprite.png"))
+    if (!texture.loadFromFile("ressources/sprite.png"))
     {
         std::cout << "Erreur pour charger la texture\n";
     }
@@ -167,7 +167,7 @@ int main()
 
     // Texte (chronometre)
     sf::Font font;
-    if (!font.loadFromFile("KGInimitableOriginal.ttf"))
+    if (!font.loadFromFile("ressources/KGInimitableOriginal.ttf"))
     {
         std::cout << "Erreur chargement font\n";
     }
