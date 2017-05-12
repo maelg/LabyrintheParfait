@@ -10,7 +10,7 @@ def creerLabyrinthe(m, n):
     while not estVide(l):
         casserCloison(laby, l)
     return laby
-        
+
 def choisirCloison(laby, case):
     """
     Renvoie une valeur appartenant à (0,1,2,3)
@@ -38,7 +38,7 @@ def choisirCloison(laby, case):
     if 3 in a and laby[l][c-1][0]:
         a.remove(3)
     """
-    
+
     a=[]
     if l != 0 and laby[l-1][c][0] == 0:
         a.append(0)
@@ -48,12 +48,12 @@ def choisirCloison(laby, case):
         a.append(2)
     if c != 0 and not laby[l][c-1][0]:
         a.append(3)
-    
+
     if a == []:
         return -1
 
     return random.choice(a)
-        
+
 def casserCloison(laby, l):
     x, y = last(l)
     if 0 <= x < len(laby) and 0 <= y < len(laby[0]):
@@ -79,9 +79,9 @@ def casserCloison(laby, l):
             empile(l, (x, y))
         else:
             depile(l)
-    else: 
+    else:
         depile(l)
-m, n = 3, 3
+m, n = 9, 16
 laby = creerLabyrinthe(m, n)
 print(laby)
 matrice = np.zeros((m*10+(m)*2+1, n*10+(n)*2+1)) + 1
@@ -93,6 +93,6 @@ for l in range(m):
         matrice[l*12+1:l*12+12, c*12+12:c*12+13] = laby[l][c][1][1]
         matrice[l*12+12:l*12+13, c*12+1:c*12+12] = laby[l][c][1][2]
                 #matrice[l*12+1:l*12+12, c*12:c*12+1] = laby.laby[l][c][1][3]
-       
+
 plt.matshow(matrice, fignum=100, cmap='gray')
 plt.show()
